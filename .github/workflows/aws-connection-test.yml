@@ -1,10 +1,10 @@
 name: AWS Connection Test
 on:
-  workflow_dispatch:
+  workflow_dispatch: # 수동 실행 가능하도록 설정
 
 jobs:
-  test-aws-connection:
-    runs-on: ubuntu-latest
+  test-aws-connection:  # 이름 아무거나 설정
+    runs-on: ubuntu-latest  # x86_64 우분투 환경에서 실행
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v5.1.0
