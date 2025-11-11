@@ -21,7 +21,7 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
-
+// f
     // 'consumes'를 통해 JSON(@RequestPart("request"))과 FormData(@RequestPart("images"))를 함께 받도록 설정
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<PostResponse> createPost(
