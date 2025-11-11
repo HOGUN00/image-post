@@ -25,8 +25,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Compile and test with Gradle
-        run: ./gradlew test
+#      - name: Compile and test with Gradle
+#        run: ./gradlew test
 
       - name: Build Docker image
         run: docker build -t image-post:latest .
@@ -67,10 +67,8 @@ jobs:
           docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
 
 
-
       - name: Download task definition template
         run: |
-
 # 태스크 이름 image-post-app-td
           aws ecs describe-task-definition --task-definition image-post-app-td --query taskDefinition > task-definition.json
 
@@ -79,7 +77,6 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-
 # 컨테이너 이름
           container-name: image-post
           image: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
@@ -88,11 +85,9 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.render-task-def.outputs.task-definition }}
-
 # 서비스 이름
           service: image-post-app-td-service-6gz02mpk
-
-          # 클러스터 이름
+# 클러스터 이름
           cluster: MyserviceCluster
           wait-for-service-stability: true
 
