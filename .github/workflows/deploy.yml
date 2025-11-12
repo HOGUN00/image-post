@@ -3,11 +3,11 @@ name: Deploy Spring Boot App
 on:
   workflow_dispatch:
 
-# 자동 실행 설정
-#  push:
-#    branches:
-#      - main
-#      - develop
+ 자동 실행 설정
+  push:
+    branches:
+      - main
+      - develop
 
 jobs:
   deploy:
@@ -86,7 +86,7 @@ jobs:
         with:
           task-definition: ${{ steps.render-task-def.outputs.task-definition }}
 # 서비스 이름
-          service: image-post-app-td-service-6gz02mpk
+          service: image-post-app-td-service-0x700z7m
 # 클러스터 이름
           cluster: MyserviceCluster
           wait-for-service-stability: true
@@ -96,5 +96,5 @@ jobs:
       - name: Verify deployment status
         run: |
           echo "Verifying deployment..."
-          aws ecs describe-services --cluster MyserviceCluster --services image-post-app-td-service-6gz02mpk
+          aws ecs describe-services --cluster MyserviceCluster --services image-post-app-td-service-0x700z7m
           echo "Deployment seems stable."
