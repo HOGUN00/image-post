@@ -97,4 +97,4 @@ jobs:
         run: |
           echo "Verifying deployment..."
           aws ecs describe-services --cluster MyserviceCluster --services image-post-app-td-service-6gz02mpk
-               echo "Deployment seems stable."
+          echo "Deployment seems stable."

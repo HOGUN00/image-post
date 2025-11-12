@@ -35,12 +35,13 @@ dependencies {
     // AWS S3 (v3)
     implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3'
 
-    // PostgreSQL Driver
-    implementation 'org.postgresql:postgresql'
-    testRuntimeOnly 'com.h2database:h2'
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // PostgreSQL Driver
+    implementation 'org.postgresql:postgresql'
+
+    testImplementation 'com.h2database:h2'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
